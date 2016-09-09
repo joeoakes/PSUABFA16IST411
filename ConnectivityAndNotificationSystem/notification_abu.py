@@ -15,6 +15,13 @@ class Connected_notification
 		else
 		print ('No device connected. \n Please turn on bluetooth on your device.')
 		return devicename_phone
+	def usb_connection (self,USB)
+		device=''
+		if (self.USB == True)
+		print('The %s is now connected through USB' % device)
+		else
+		print ('No device is connected through USB')
+		return device
 #probably how a connection notification class should look like
 """
 Notification properties
