@@ -42,7 +42,7 @@ class Connected_notification
                 return device
 	
 
-#probably how a connection notification class should look like
+#probably how a connection notification class should look like for emergency
 LITHIUMKWHPACKFULL = 100
 LITHIUMKWHPACKHIGH = 75
 LITHIUMKWHPACKMEDIUM = 50
@@ -69,7 +69,18 @@ class notification_level:
 ## probabaly how a notification level is calculated for the battery
 
 
+##probably how a connection notification class should look like for system/mant
+redAlert = 100 #send notice on phone / manufa / dealer
+orange= 75 # send notice on phone
+lightOn= 50 # turn on lights in display
+lightBlink= 25 # blinking lights for 10-15 mins when car starts
+sMlevel = entrylogbook
 
+class systemMant_notic:
+## need idea of getting notic from logbook :(
+
+
+)
 
 
 """
