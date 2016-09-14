@@ -4,7 +4,7 @@ LITHIUMKWHPACKMEDIUM = 50
 LITHIUMKWHPACKLOW = 25
 NOTIFYLEVEL = ''
 
-class notificationLevel:
+class notification_level:
     def __init__(self,kwhLevel):
         self.kwhLevel = 100
 
