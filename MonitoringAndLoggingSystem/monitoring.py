@@ -51,6 +51,8 @@ class Monitor:
 	
 	#This method sends a ping to the destination subsystem as a status
 	#request to see that the subsystem is still functioning and healthy
+	#To implement, create a new message object and populate it with the
+	#correct data (universal code needed for status update request)
 	def PingSystem(self, destination_id):
 
 
@@ -94,19 +96,24 @@ class Message:
 	#This method creates a logfile for the current message
 	def SendToLog(self, log_type):
 	
+	#This method converts the message object into its JSON representation
+	def ConvertToJSON(self):
+		message = {}
+                message['origin_id'] = self.origin_id
+                message['destination_id'] = self.destination_id
+                message['health_code'] = self.health_code
+                message['timestamp'] = self.timestamp
+                message['time_to_live'] = self.ttl
+                message['checksum'] = self.checksum
+                json_message = json.dumps(message)
+		return json_message
 
-	#This method builds a json representation of the monitored data
+
+	#This method calls COnvertTOJSON which returns the serialized message
 	#and calculates the md5 checksum of the serialized json
 	#Returns calculated checksum
 	def CalculateChecksum(self):
-		message = {}
-		message['origin_id'] = self.origin_id
-		message['destination_id'] = self.destination_id
-		message['health_code'] = self.health_code
-		message['timestamp'] = self.timestamp
-		message['time_to_live'] = self.ttl
-		message['checksum'] = self.checksum
-		json_message = json.dumps(message)
+		json_message = ConvertToJSON()
 		calc_checksum = md5.new(json_message).hexdigest()
 		return calc_checksum
 
