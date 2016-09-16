@@ -49,4 +49,8 @@ class Log:
 
 	#This method stores the log in a database for future use
 	def WriteToDB(self):
+<<<<<<< HEAD
+		pass
+=======
 
+>>>>>>> 71484bb26a9747dcd029a01237bfee081471afa5
