@@ -20,3 +20,4 @@ class Log:
 
 	#This method stores the log in a database for future use
 	def WriteToDB(self):
+		pass
