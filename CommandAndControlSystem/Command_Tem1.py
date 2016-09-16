@@ -1,25 +1,30 @@
-"""Team Systems"""
-systemID1 = "Team 1 BS" 
-systemID2 = "Team 2 CCS"
-systemID3 = "Team 3 EMS"
-systemID4 = "Team 4 DS"
-systemID5 = "Team 5 LS"
-systemID6 = "Team 6 SACS"
+#Author: Matt Smith
+#Command Python File
+#This is essentially going to handle messages between Pi systems and pripority.
 
-"""Command Codes"""
-AB = "Apply Brakes"
-BL = "Brake Lights"
-TS = "Turn Signal"
-EL = "Emergency Lights"
-AG = "Apply Gas"
-HL = "Headlights"
+#Last Update: 9/15/2016
 
-"""Date Time Stamp"""
-datetimestamp = "2016_09_08_19:14:00"
+import md5 
+import json
 
-"""Time To Live"""
-TTL = "10ms"
+message = "Team 1 Is The Best"
 
-"""Check sum"""
-checksum = "123456ff0-21"
- 
+class Command:
+
+	def hashing(self, message):
+		m = md5.new()
+		m.update(message)
+		dstring = m.hexdigest()
+		print(dstring)
+
+	def json(self):
+		basic_entry = {}
+		basic_entry['id'] = 256
+		basic_entry['title'] = 'the circle'
+		print(md5.new(json.dumps(basic_entry)).hexdigest())
+
+
+hash = Command()
+hash.hashing(message)
+hash.json()
+
