@@ -1,11 +1,12 @@
+
 import md5
 m = md5.new()
-m.update('{"employees":[{"firstName":"John", "lastName":"Doe"},{"firstName":"Anna", "lastName":"Smith"},{"firstName":"Peter", "lastName":"Jones"}]}')
+m.update('{"System ID":[{"systemID1":"Team 1 BS", "systemID2":"Team 2 CSS"},{"systemID3":"Team 3 EMS", "systemID4":"Team 4 DS"},{"systemID5":"Team 5 LS", "systemID6":"Team 6 SACS"}]}')
 dstring = m.hexdigest()
 print(dstring)
 
 # Optimized no objects were needed to perform hash
-print(md5.new('{"employees":[{"firstName":"John", "lastName":"Doe"},{"firstName":"Anna", "lastName":"Smith"},{"firstName":"Peter", "lastName":"Jones"}]}').hexdigest())
+print(md5.new('{"Command Codes":[{"AB":"Apply Brakes", "SL":"Signal Lights"},{"AG":"Apply Gas", "BL":"Brake Lights"},{"EL":"Emergency Lights", "HL":"Headlights"}]}').hexdigest())
 
 # Serialize python object into JSON
 import json
