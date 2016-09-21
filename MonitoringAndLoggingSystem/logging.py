@@ -3,6 +3,7 @@
 # author: IST411 Group 2
 # 9/8/2016
 from cookielib import logger
+import json
 
 
 # import logging
@@ -43,6 +44,10 @@ class Log:
 		self.log_ttl = time_to_live
 		self.log_checksum = checksum
 		self.log_type = log_type
+
+
+	def JSON_To_Python(self, recieved_messaage):
+		return json.loads(recieved_message)		
 
 	def displayLog(self):
 		print ("ID: ", self.origin_id, "Code: ", self.log_code, "Subject: ", self.log_subject, "Message: ", self.log_message, "Time: ", self.log_timestamp, "Checksum: ", self.log_checksum)
