@@ -3,7 +3,7 @@ import hashlib
 
 '''
 Author: Ivan Iakimenko
-Ver: 1
+Ver: 2
 Description: This class stores all of the properties of a message and has methods to convert it to a json string, generate a checksum
 based on the payload, and check the generated payload against the one supplied at initialization. If no checksum is available
 at initialization, a checksum is automatically generated based on the current payload (this is useful for sending messages so 
