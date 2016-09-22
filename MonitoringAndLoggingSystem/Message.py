@@ -19,7 +19,7 @@ class Message:
         self.ttl = time_to_live
         self.payload = payload
 
-        if checksum='0':
+        if checksum=='0':
             self.checksum = self.CalculateChecksum()
         else:
             self.checksum = checksum
