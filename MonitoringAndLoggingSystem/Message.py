@@ -1,0 +1,40 @@
+import json
+import hashlib
+
+'''
+Author: Ivan Iakimenko
+Ver: 1
+Description: This class stores all of the properties of a message and has methods to convert it to a json string, generate a checksum
+based on the payload, and check the generated payload against the one supplied at initialization. If no checksum is available
+at initialization, a checksum is automatically generated based on the current payload (this is useful for sending messages so 
+you don't have to compute the payload from whatever code you're sending it from)
+'''
+class Message:
+    def __init__(self, car_id, origin_id, destination_id, health_code, timestamp, time_to_live, payload, checksum=' '):
+        self.car_id = car_id
+        self.origin_id = origin_id
+        self.destination_id = destination_id
+        self.health_code = health_code
+        self.timestamp = timestamp
+        self.ttl = time_to_live
+        self.payload = payload
+
+        if checksum.isspace:
+            self.checksum = self.CalculateChecksum()
+        else:
+            self.checksum = checksum
+
+    #Returns string JSON representation of current message object based on message formatting standard
+    def ConvertToJSON(self):
+        contents={'CID':self.car_id,'OID':self.origin_id,'DID':self.destination_id, 'HC':self.health_code, 'TS':self.timestamp, 'TTL':self.ttl, 'CKS':self.checksum}
+        contents['PLD']=self.payload
+        return json.dumps(contents)
+
+    #Returns a md5 checksum based on current payload
+    def CalculateChecksum(self):
+        return hashlib.md5(self.payload.encode()).hexdigest()
+
+    #Returns a boolean based on whether supplied checksum matches self generated value
+    def CompareChecksum(self):
+        return self.checksum == self.CalculateChecksum()
+    
