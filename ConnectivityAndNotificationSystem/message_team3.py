@@ -4,7 +4,9 @@ import hashlib
 '''
 Team 3
 Ver: 2
-Description: This class stores all of the properties of a message developed by Ivan. This will be the main messaging system across all the systems that need to be developed. You can think of it as a standard but there will be improvements over time for sure.
+Description: This class stores all of the properties of a message developed by Ivan. 
+This will be the main messaging system across all the systems that need to be developed. 
+You can think of it as a standard but there will be improvements over time for sure.
 '''
 
 class Message:
