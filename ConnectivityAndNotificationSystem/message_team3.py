@@ -2,7 +2,7 @@ import json
 import hashlib
 
 '''
-Team 3
+Ivan and the boys have come to the conclusion of this standard messaging system between systems.
 Ver: 2
 Description: This class stores all of the properties of a message developed by Ivan. 
 This will be the main messaging system across all the systems that need to be developed. 
