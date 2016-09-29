@@ -1,10 +1,8 @@
-import json
 import time
-import hashlib
 
 '''
 Author: Ivan Iakimenko
-Ver: 1
+Ver: 5
 Description: This class stores all of the properties of a message and has methods to convert it to a json string, generate a checksum
 based on the payload, and check the generated payload against the one supplied at initialization. If no checksum is available
 at initialization, a checksum is automatically generated based on the current payload (this is useful for sending messages so 
@@ -38,10 +36,12 @@ class Message:
     def ConvertToJSON(self):
         contents={'CID':self.car_id,'OID':self.origin_id,'DID':self.destination_id, 'HC':self.health_code, 'TS':self.timestamp, 'TTL':self.ttl, 'UID':self.uuid, 'CKS':self.checksum }
         contents['PLD']=self.payload
+        import json
         return json.dumps(contents)
 
     #Returns a md5 checksum based on current payload
     def CalculateChecksum(self):
+        import hashlib
         return hashlib.md5(self.payload.encode()).hexdigest()
 
     #Returns a boolean based on whether supplied checksum matches self generated value
@@ -52,4 +52,9 @@ class Message:
     def GenerateUUID(self):
         import uuid
         return uuid.uuid4().hex
+
+    #Return the timestamp in a readable format
+    def TranslateTimestamp(self):
+        return time.ctime(self.timestamp)
+
     
