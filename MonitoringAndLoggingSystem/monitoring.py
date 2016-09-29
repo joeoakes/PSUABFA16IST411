@@ -41,7 +41,7 @@ class Monitor:
         #Method converts json string to a message object. Needs to add error handling for impropper json formatting
         def ConvertFromJSON(json_string):
             contents = json.loads(json_string)
-            return Message(contents['CID'], contents['OID'], contents['DID'], contents['HC'], contents['TS'], contents['TTL'], contents['PLD'], contents['CKS'])
+            return Message(contents['CID'], contents['OID'], contents['DID'], contents['HC'], contents['TTL'], contents['PLD'], contents['TS'], contents['CKS'])
 
         #Threading setup
         class myThread (threading.Thread):
@@ -70,10 +70,10 @@ class Monitor:
 
 
         threadList = ["Thread-1", "Thread-2", "Thread-3"]
-        messageList = ['{"CID": "car10393", "HC": 1, "DID": "brs", "CKS": "8fcffdcd1c1dbd62c199aa2a13c9043a", "TTL": 100, "OID": "ccs", "PLD": "payload: This message format defined by subteams", "TS": "12:42:213"}',
-                       '{"CID": "car10393", "HC": 2, "DID": "mls", "CKS": "8fcffdcd1c1dbd62c199aa2a13c9043a", "TTL": 100, "OID": "ccs", "PLD": "payload: This message format defined by subteams", "TS": "12:42:747"}', 
-                       '{"CID": "car10393", "HC": 3, "DID": "dts", "CKS": "8fcffdcd1c1dbd62c199aa2a13c9043a", "TTL": 100, "OID": "ccs", "PLD": "payload: This message format defined by subteams", "TS": "12:42:343"}', 
-                       '{"CID": "car10393", "HC": 4, "DID": "ems", "CKS": "8fcffd1c1dbd62c199aa13c9043azdsd", "TTL": 100, "OID": "ccs", "PLD": "payload: This message format defined by subteams", "TS": "12:42:293"}' 
+        messageList = ['{"CID": "car10393", "HC": 1, "DID": "brs", "CKS": "8fcffdcd1c1dbd62c199aa2a13c9043a", "TTL": 100, "OID": "ccs", "PLD": "payload: This message format defined by subteams", "TS": "1475104399.039066"}',
+                       '{"CID": "car10393", "HC": 2, "DID": "mls", "CKS": "8fcffdcd1c1dbd62c199aa2a13c9043a", "TTL": 100, "OID": "ccs", "PLD": "payload: This message format defined by subteams", "TS": "1476102339.032081"}', 
+                       '{"CID": "car10393", "HC": 3, "DID": "dts", "CKS": "8fcffdcd1c1dbd62c199aa2a13c9043a", "TTL": 100, "OID": "ccs", "PLD": "payload: This message format defined by subteams", "TS": "1475104399.039066"}', 
+                       '{"CID": "car10393", "HC": 4, "DID": "ems", "CKS": "8fcffd1c1dbd62c199aa13c9043azdsd", "TTL": 100, "OID": "ccs", "PLD": "payload: This message format defined by subteams", "TS": "1475104399.039066"}' 
                        ]
         queueLock = threading.Lock()
         workQueue = queue.Queue(10)
